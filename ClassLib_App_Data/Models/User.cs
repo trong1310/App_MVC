@@ -17,6 +17,8 @@ namespace ClassLib_App_Data.Models
         public string Address { get; set; }
         public string City { get; set; }
         public DateTime DoB { get; set; }
+        public Guid RolesID { get; set; }
+        public Roles Roles { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         // ICollection<HoaDon> HoaDons chi de the hien 1 user co the co nhieu hoa don
         // ICollection<HoaDon> HoaDons con duoc su dung de lam Navigation de tro den khi can
