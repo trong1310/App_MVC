@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace ClassLib_App_Data.Configurations
 {
-    public class SanPhamConfigs : IEntityTypeConfiguration<SanPham>
+    public class GioHangConfig : IEntityTypeConfiguration<GioHang>
     {
-        public void Configure(EntityTypeBuilder<SanPham> builder)
+        public void Configure(EntityTypeBuilder<GioHang> builder)
         {
-            builder.ToTable("Products");
-
             builder.HasKey(x => x.ID);
-
-            builder.HasOne(x => x.DanhMuc).WithMany(x => x.SanPhams).HasForeignKey(x => x.DanhMucID)
-                .HasConstraintName("FK_Category_Products");
+            builder.HasOne(x => x.User).WithOne().HasForeignKey<GioHang>(x => x.UserID);
         }
     }
 }

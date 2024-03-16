@@ -14,6 +14,7 @@ namespace ClassLib_App_Data.Models
         public Decimal TotalMoney { get; set; }
         public int Status { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<ThanhToan> ThanhToans { get; set; }
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
     }
 }
