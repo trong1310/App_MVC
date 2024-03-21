@@ -12,15 +12,15 @@ namespace ClassLib_App_Data.Repository
     public class Repository<T> : IAllRepository<T> where T : class
     {
 
-         DemoCodeFisrtContext context;
+         WebMvcContext context;
         DbSet<T> dbset; // CRUD tren db set vi noi dai dien cho bang
         // khi can goi lai va dung that thi lai can chinhs xac no la Dbset nào
         // Lúc đó ta sẽ gán dbset = DBset cần dùng
         public Repository()
         {
-            context = new DemoCodeFisrtContext();
+            context = new WebMvcContext();
         }
-        public Repository(DbSet<T> dbset, DemoCodeFisrtContext context)
+        public Repository(DbSet<T> dbset, WebMvcContext context)
         {
            this.dbset = dbset;// Gán lại khi dùng
             this.context = context;
