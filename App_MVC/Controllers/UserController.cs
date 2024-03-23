@@ -45,5 +45,36 @@ namespace App_MVC.Controllers
             _repository.UpdateObj(user);
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(Guid id)
+        {
+            
+            _repository.DeleteObj(id);
+            return RedirectToAction("Index");
+        }
+        public IActionResult Details(Guid id) 
+        {
+            var getUser = _repository.GetByID(id);
+            return View(getUser);
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(string userName,string passWord)
+        {
+            var user = _repository.GetAll().FirstOrDefault(x=>x.UserName == userName && x.Password == passWord);
+            if(user != null)
+            {
+                // return Content("Đăng nhập thành công");
+                //  dùng tempdata để lưu chữ đăng nhập tạm thời
+                TempData["Login"] = userName;
+                return RedirectToAction("Index","Home");
+            }
+            else
+            {
+                return Content("Đăng nhập thất bại");
+            }
+        }
     }
 }
