@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ClassLib_App_Data.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="d-flex justify-content-center">Danh Sách Sản Phẩm</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-2" type="button"><a asp-action="Create" class="text-white text-decoration-none">Tạo mới</a></button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductsName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductsPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductsQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductsImages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductsStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductsPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductsQuantity)
+            </td>
+            <td>
+                   <img src=" item.ProductsImages">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductsStatus)
+            </td>
+            <td>
+                @Html.ActionLink( "Chi Tiết","Details", new {  id=item.ID }, new{@class="text-decoration-none"}) |
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "text-decoration-none" }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "text-decoration-none" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

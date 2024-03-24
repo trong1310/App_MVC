@@ -1,0 +1,56 @@
+﻿@model ClassLib_App_Data.Models.SanPham
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<h1 class="d-flex justify-content-center">Tạo mới sản phẩm</h1>
+<hr />
+<div class="row d-flex justify-content-center">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group mt-3">
+				<input asp-for="ProductsName" class="form-control" placeholder="ProductsName" />
+				<span asp-validation-for="ProductsName" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+				<input asp-for="ProductDescription" class="form-control" placeholder="ProductDescription"/>
+				<span asp-validation-for="ProductDescription" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+
+				<input asp-for="ProductsPrice" class="form-control" placeholder="ProductsPrice" />
+				<span asp-validation-for="ProductsPrice" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+
+				<input asp-for="ProductsQuantity" class="form-control" placeholder="ProductsQuantity" />
+				<span asp-validation-for="ProductsQuantity" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+
+				<input type="file" asp-for="ProductsImages" class="form-control" placeholder="ProductsImages"/>
+				<span asp-validation-for="ProductsImages" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+				<input asp-for="ProductsStatus" class="form-control" placeholder="ProductsStatus" />
+				<span asp-validation-for="ProductsStatus" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+				<input asp-for="DanhMucID" class="form-control"  placeholder="CategoryID"/>
+				<span asp-validation-for="DanhMucID" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-3">
+				<input type="submit" value="Create" class="btn btn-primary mt-3" style="text-align: center;"/>
+			</div><a asp-action="Index" class="text-decoration-none">Back to List</a>
+		</form>
+
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

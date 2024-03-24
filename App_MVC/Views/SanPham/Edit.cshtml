@@ -1,0 +1,66 @@
+﻿@model ClassLib_App_Data.Models.SanPham
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="d-flex justify-content-center">Chỉnh sửa sản phẩm</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateProducts">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsName" class="control-label"></label>
+                <input asp-for="ProductsName" class="form-control" />
+                <span asp-validation-for="ProductsName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDescription" class="control-label"></label>
+                <input asp-for="ProductDescription" class="form-control" />
+                <span asp-validation-for="ProductDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsPrice" class="control-label"></label>
+                <input asp-for="ProductsPrice" class="form-control" />
+                <span asp-validation-for="ProductsPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsQuantity" class="control-label"></label>
+                <input asp-for="ProductsQuantity" class="form-control" />
+                <span asp-validation-for="ProductsQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsImages" class="control-label"></label>
+                <input type="file" asp-for="ProductsImages" class="form-control" />
+                <span asp-validation-for="ProductsImages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsStatus" class="control-label"></label>
+                <input asp-for="ProductsStatus" class="form-control" />
+                <span asp-validation-for="ProductsStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DanhMucID" class="control-label"></label>
+                <input asp-for="DanhMucID" class="form-control" />
+                <span asp-validation-for="DanhMucID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
